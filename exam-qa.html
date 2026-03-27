@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMS5122 D4Q2 Study Guide - Sea Paradise</title>
+<style>
+  :root {
+    --blue-900: #1e3a5f;
+    --blue-700: #2c5282;
+    --blue-600: #3065a0;
+    --blue-500: #4a7ec5;
+    --blue-400: #6b9bd2;
+    --blue-200: #b3d1f0;
+    --blue-100: #dbeafe;
+    --blue-50: #eff6ff;
+    --gray-900: #1a202c;
+    --gray-700: #4a5568;
+    --gray-500: #718096;
+    --gray-300: #e2e8f0;
+    --gray-100: #f7fafc;
+    --white: #ffffff;
+    --green-100: #f0fff4;
+    --green-700: #276749;
+    --amber-100: #fffbeb;
+    --amber-700: #92400e;
+    --red-100: #fef2f2;
+    --red-700: #b91c1c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-900);
+    line-height: 1.6;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
+    color: var(--white);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+
+  .controls {
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.6rem 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-box::placeholder { color: rgba(255,255,255,0.6); }
+  .search-box:focus { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.2); }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--white);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+
+  .filter-btn:hover { background: rgba(255,255,255,0.15); }
+  .filter-btn.active { background: var(--white); color: var(--blue-900); border-color: var(--white); }
+
+  .stats {
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--gray-500);
+  }
+
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 4rem;
+  }
+
+  .section-header {
+    margin: 2rem 0 1rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--blue-700);
+    color: var(--white);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .qa-card {
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    border: 1px solid var(--gray-300);
+  }
+
+  .qa-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .qa-card.highlight { border-color: var(--blue-500); box-shadow: 0 0 0 2px var(--blue-200); }
+
+  .qa-question {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    user-select: none;
+  }
+
+  .qa-question:hover { background: var(--blue-50); }
+
+  .qa-num {
+    background: var(--blue-600);
+    color: var(--white);
+    min-width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .qa-q-text {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--gray-900);
+    flex: 1;
+  }
+
+  .qa-toggle {
+    font-size: 1.2rem;
+    color: var(--gray-500);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .qa-card.open .qa-toggle { transform: rotate(180deg); }
+
+  .qa-answer {
+    display: none;
+    padding: 0 1.25rem 1.25rem;
+    padding-left: 3.75rem;
+  }
+
+  .qa-card.open .qa-answer { display: block; }
+
+  .qa-answer-inner {
+    padding: 1rem 1.25rem;
+    background: var(--blue-50);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--gray-700);
+    border-left: 3px solid var(--blue-500);
+  }
+
+  .qa-answer-inner strong { color: var(--gray-900); }
+
+  .qa-answer-inner ol, .qa-answer-inner ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .qa-answer-inner li { margin-bottom: 0.4rem; }
+
+  .case-ref {
+    font-style: italic;
+    color: var(--blue-700);
+  }
+
+  .statute-ref {
+    font-weight: 600;
+    color: var(--blue-900);
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  .tag-parta { background: var(--blue-100); color: var(--blue-700); }
+  .tag-partb { background: var(--green-100); color: var(--green-700); }
+  .tag-cross { background: var(--amber-100); color: var(--amber-700); }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--gray-500);
+    font-size: 1.1rem;
+  }
+
+  .expand-all {
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--white);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+
+  .expand-all:hover { background: rgba(255,255,255,0.15); }
+
+  .keyboard-hint {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 1.25rem 1rem; }
+    header h1 { font-size: 1.2rem; }
+    main { padding: 0.75rem 1rem 3rem; }
+    .qa-answer { padding-left: 1.25rem; }
+    .controls { flex-direction: column; }
+    .search-box { min-width: unset; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BMS5122 D4Q2: Sea Paradise Study Guide</h1>
+  <p>Unfair Treatment, Buy-Out, and Judicial Intervention in Directors' Business Decisions</p>
+  <div class="controls">
+    <input type="text" class="search-box" id="search" placeholder="Search questions and answers..." autofocus>
+    <button class="filter-btn active" data-filter="all">All (30)</button>
+    <button class="filter-btn" data-filter="parta">Part A</button>
+    <button class="filter-btn" data-filter="partb">Part B</button>
+    <button class="filter-btn" data-filter="cross">Cross-Cutting</button>
+    <button class="expand-all" id="expandAll">Expand All</button>
+  </div>
+  <div class="keyboard-hint">Press / to search, Esc to clear</div>
+</header>
+
+<div class="stats" id="stats">Showing 30 of 30 questions</div>
+
+<main id="main">
+
+<!-- PART A -->
+<div class="section-header" data-section="parta">Part A: Grounds for a Buy-Out Under Section 216</div>
+
+<div class="qa-card" data-category="parta" data-id="1">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">1</span>
+    <span class="qa-q-text">What is the legal test for oppression under s 216 of the Companies Act? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Section 216(1) CA permits any member to apply to the Court where the company's affairs are conducted in a manner oppressive to one or more members, or in disregard of their interests. The governing criterion, confirmed by the Court of Appeal in <span class="case-ref">Over and Over Ltd v Bonvests Holdings Ltd</span> [2010] 2 SLR 776, is <strong>commercial unfairness</strong>: a departure from the standards of fair dealing and a violation of the conditions of fair play which a shareholder is entitled to expect.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="2">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">2</span>
+    <span class="qa-q-text">Do the disgruntled shareholders have standing to bring an oppression claim under s 216? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Yes. <span class="statute-ref">Section 216(1)</span> is available to "any member" of the company. In <span class="case-ref">Ayaz Ahmad v Mustaq Ahmad</span> [2022] SGHC 161, the court confirmed that minority shareholders have standing to bring an oppression claim. The disgruntled shareholders here hold approximately 50% of shares and clearly qualify as "members" with locus standi.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="3">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">3</span>
+    <span class="qa-q-text">What are the two recurring categories of oppressive conduct relevant to this case? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Two key patterns are: (i) <strong>no or inadequate dividends coupled with other unfair conduct</strong>, per <span class="case-ref">Re Sam Weller &amp; Sons Ltd</span> [1990] Ch 682; and (ii) <strong>serious breaches of directors' duties involving abuse of trust or misuse of corporate powers</strong>, as seen in <span class="case-ref">Ho Yew Kong v Sakae Holdings Ltd</span> [2018] SGCA 33. Both patterns are present in the Sea Paradise scenario.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="4">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">4</span>
+    <span class="qa-q-text">Why does the interest-free loan to Director C violate s 162 of the Companies Act? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    <span class="statute-ref">Section 162(1)</span> prohibits a company from making a loan to any director. The exceptions are narrow: exempt private companies (EPCs), banks, and loans to executive directors as part of a shareholder-approved employee benefits scheme. SEA is <strong>not</strong> an EPC because Investment Company (IC), a corporation, holds 25% of shares, disqualifying it under <span class="statute-ref">s 4 CA</span>. The loan is also not part of any shareholder-approved employee benefits scheme. Therefore, it is a clear statutory violation.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="5">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">5</span>
+    <span class="qa-q-text">What is an exempt private company (EPC), and why does Sea Paradise not qualify? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    An EPC under <span class="statute-ref">s 4 CA</span> is a private company where no corporation holds a beneficial interest in the shares. Sea Paradise fails to qualify because Investment Company (IC), a corporation, holds 25% of the company's shares. This disqualification is critical because the s 162 prohibition on loans to directors applies fully to non-EPCs with no carve-out.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="6">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">6</span>
+    <span class="qa-q-text">Why does the directors' justification for the loan to C fail the business judgment test? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The directors claim the club membership enables C to "entertain clients and keep watch over the flagship restaurant." This fails the <span class="case-ref">Intraco</span>/<span class="case-ref">Scintronix</span> business judgment test for three reasons:
+    <ol>
+      <li><strong>Personal asset, not corporate:</strong> Club memberships are registered under an individual's name and cannot be transferred to or held by a company. If C leaves, SEA cannot recover the membership.</li>
+      <li><strong>Business purposes do not require a personal membership:</strong> C could enter the club as a guest to monitor the restaurant, and clients could be entertained through guest passes or corporate event bookings.</li>
+      <li><strong>Not a bona fide business judgment:</strong> The loan was interest-free, repayable over 10 years, with no board deliberation or shareholder approval, closely resembling the misappropriation in <span class="case-ref">Ayaz</span>.</li>
+    </ol>
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="7">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">7</span>
+    <span class="qa-q-text">How does <em>Ayaz Ahmad v Mustaq Ahmad</em> support the shareholders' case on the loan? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    In <span class="case-ref">Ayaz</span>, unsecured interest-free loans to directors without board discussion constituted misappropriation and oppression under the CA. The facts in Sea Paradise closely parallel <span class="case-ref">Ayaz</span>: an interest-free loan was granted to Director C for personal benefit (a club membership), with no recorded board deliberation or shareholder approval. Both cases involve directors using company resources for personal gain without accountability.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="8">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">8</span>
+    <span class="qa-q-text">How does <em>Ho Yew Kong v Sakae Holdings Ltd</em> strengthen the oppression claim? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    In <span class="case-ref">Sakae</span>, the Court of Appeal condemned the diversion of company funds through transactions benefiting directors personally. The interest-free loan to Director C for a personal club membership fits this pattern: company funds are being diverted for a director's personal benefit rather than a genuine corporate purpose. <span class="case-ref">Sakae</span> also confirms that courts assess oppressive conduct <strong>cumulatively</strong>, not in isolation.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="9">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">9</span>
+    <span class="qa-q-text">Why is the three-year dividend drought relevant to the oppression claim? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Under <span class="case-ref">Re Sam Weller</span>, consistent non-payment of dividends coupled with conduct advantaging the majority constitutes oppression. In <span class="case-ref">Ayaz</span>, dividends withheld for 12 years while directors received substantial fees constituted oppression. At Sea Paradise, no dividends have been declared for three years despite substantial profits, while directors compensate themselves through salaries, fees, and the interest-free loan. This creates a two-tier system where dividend-dependent shareholders receive nothing.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="10">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">10</span>
+    <span class="qa-q-text">Why is the distinction between "interests" and "rights" important in s 216? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Under <span class="statute-ref">s 216</span>, "interests" is wider than "rights." Shareholders whose primary return is dividends have a fundamentally different interest from director-shareholders who receive salaries and fees. This distinction matters because the directors can argue that not declaring dividends does not violate any legal "right" of the shareholders; however, it does violate their <strong>"interest"</strong> in receiving a return on their investment, especially when directors are simultaneously compensating themselves through other means.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="11">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">11</span>
+    <span class="qa-q-text">How do Articles 10, 11, and 12 create a "structural lock-in" that supports the oppression claim? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The three articles work together to entrench directors permanently:
+    <ul>
+      <li><strong>Article 10:</strong> Director-shareholders remain directors for as long as they hold shares (so they cannot be removed).</li>
+      <li><strong>Article 11:</strong> Article 10 cannot be amended except with 90% shareholder consent, which is an entrenching provision under <span class="statute-ref">s 26A CA</span>. The disgruntled shareholders at ~50% cannot meet this threshold.</li>
+      <li><strong>Article 12:</strong> New director nominees must first be approved by current directors, so the board controls its own composition.</li>
+    </ul>
+    Together, these prevent the shareholders from removing directors or appointing new ones, leaving them trapped with no avenue for change except expensive litigation under s 216.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="12">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">12</span>
+    <span class="qa-q-text">What role does the constitutional "promise" play in the oppression analysis? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Shareholders were told that Articles 10-12 would align directors' and shareholders' interests. Under <span class="statute-ref">s 39(1) CA</span>, the constitution binds company and members as a statutory contract, enforceable per <span class="case-ref">Rayfield v Hands</span> [1960] Ch 1. The broken promise, grounded in the contractual approach confirmed in <span class="case-ref">Over</span>, converts the structural lock-in from a neutral governance mechanism into a tool of oppression. Even later shareholders who had no choice took shares subject to this constitutional bargain and are entitled to expect its observance.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="13">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">13</span>
+    <span class="qa-q-text">What is the cumulative case for oppression, and why does it matter? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Oppression may be established by a series of cumulative acts, as demonstrated in <span class="case-ref">Ayaz</span> (unconstitutional share allotments, interest-free loans, 12 years without dividends). The shareholders can point to: (i) the interest-free loan, a s 162 violation and misappropriation; (ii) three years without dividends despite substantial profits; and (iii) a broken constitutional promise with structural lock-in under <span class="statute-ref">s 26A</span>. Each ground reinforces the others. The cumulative weight is decisive because <strong>individual acts that might not alone constitute oppression can collectively establish commercial unfairness</strong>.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="14">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">14</span>
+    <span class="qa-q-text">What remedy should the shareholders seek, and why? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The most appropriate remedy is a <strong>buy-out at fair value</strong> under <span class="statute-ref">s 216(2)(d) CA</span>, as ordered in <span class="case-ref">Ayaz</span>. Section 216(2) confers wide remedial powers. Winding up would destroy going-concern value and is disproportionate. However, in practice, buying out a 50% stake may strain the company financially, so the court may alternatively order relief under <span class="statute-ref">s 216(2)(b)</span>, such as regulating future affairs through a mandatory dividend policy.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="parta" data-id="15">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">15</span>
+    <span class="qa-q-text">What remedies are available under s 216(2) besides a buy-out? <span class="tag tag-parta">Part A</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    <span class="statute-ref">Section 216(2)</span> confers wide remedial powers, including: (a) directing or prohibiting any act; (b) regulating the future conduct of the company's affairs (e.g., imposing a dividend policy); (c) authorising civil proceedings in the company's name; and (d) ordering the purchase of shares by any member or by the company (buy-out). The court has flexibility to craft the most appropriate remedy based on the circumstances.
+  </div></div>
+</div>
+
+<!-- PART B -->
+<div class="section-header" data-section="partb">Part B: Directors' Business Decisions and Judicial Intervention</div>
+
+<div class="qa-card" data-category="partb" data-id="16">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">16</span>
+    <span class="qa-q-text">What is the <em>Intraco</em> test for directors' business decisions? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Under <span class="case-ref">Intraco Ltd v Multi-Pak Singapore Pte Ltd</span> [1994] SGCA 142, courts will not second-guess directors who honestly believed their decision served the company. <span class="statute-ref">Section 157A(1) CA</span> vests management power in directors. The test focuses on <strong>subjective honesty</strong>: did the directors genuinely believe the decision was in the company's best interests? This gives directors broad deference for commercial decisions.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="17">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">17</span>
+    <span class="qa-q-text">What does <em>Ho Kang Peng v Scintronix Corp Ltd</em> add to the <em>Intraco</em> test? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    <span class="case-ref">Scintronix</span> [2014] 3 SLR 329 adds an <strong>objective check</strong>: could an honest and intelligent director have held that belief on the given facts? This prevents directors from hiding behind purely subjective claims of good faith. While <span class="case-ref">Intraco</span> only required subjective honesty, <span class="case-ref">Scintronix</span> requires that the belief must also be objectively reasonable; a decision that no reasonable director could have made in good faith is not protected.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="18">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">18</span>
+    <span class="qa-q-text">Why is the decision not to sue XCo defensible under the business judgment framework? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The decision is defensible for several reasons:
+    <ol>
+      <li><strong>Subjective element met:</strong> The directors cite risk aversion and litigation costs as legitimate commercial considerations.</li>
+      <li><strong>Investigation was conducted:</strong> The directors investigated the matter before deciding not to sue, distinguishing this from a blanket refusal to investigate that would fail the <span class="case-ref">Scintronix</span> objective test.</li>
+      <li><strong>Rational basis:</strong> It is reasonable for an honest director to conclude that suing an insolvent XCo would be unlikely to yield meaningful recovery.</li>
+      <li><strong>Management vested in directors:</strong> Under <span class="statute-ref">s 157A(1)</span>, the decision whether to pursue litigation is within the directors' management authority.</li>
+    </ol>
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="19">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">19</span>
+    <span class="qa-q-text">Is there any basis to criticise the directors' decision not to sue XCo? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Yes, there is a potential weakness. Mr X signed the contract knowing XCo was insolvent, which could give rise to <strong>personal liability</strong> against Mr X (not just XCo). An honest director aware of these facts might investigate this avenue rather than dismissing the claim entirely. A blanket refusal to investigate might fail the <span class="case-ref">Scintronix</span> objective test. However, even if a breach of duty is established, <span class="case-ref">Inter-Pacific Petroleum Pte Ltd v Goh Jin Hian</span> requires proof that the litigation would have actually yielded recovery.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="20">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">20</span>
+    <span class="qa-q-text">Why can the directors be faulted for the loan to Director C under the business judgment framework? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The directors are faultable on <strong>two independent grounds</strong>:
+    <ol>
+      <li><strong>Statutory contravention:</strong> <span class="statute-ref">Section 162(1)</span> prohibits loans to directors. Business judgment principles in <span class="case-ref">Intraco</span> and <span class="case-ref">Re Smith and Fawcett</span> protect commercial decisions made in good faith; they do <strong>not</strong> protect statutory violations. The transaction also attracts criminal liability under <span class="statute-ref">s 162(6)</span>.</li>
+      <li><strong>Breach of fiduciary duty:</strong> Even setting aside s 162, the loan independently breaches <span class="statute-ref">s 157(1)</span>. The membership is a non-transferable personal asset that appreciates C solely. No honest and intelligent director could reasonably conclude this served the company's interests. Director C has a direct conflict of interest, and Directors A and B breached their duty of care.</li>
+    </ol>
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="21">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">21</span>
+    <span class="qa-q-text">Why does the Business Judgment Rule not protect the loan decision? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The Business Judgment Rule (whether formal or informal) protects <strong>commercial decisions made in good faith</strong> within the directors' management authority. It does not protect: (a) <strong>statutory violations</strong>, because s 162 is a mandatory prohibition, not a discretionary judgment call; and (b) <strong>decisions where the director has a direct conflict of interest</strong>, because good faith is absent when a director personally benefits from the transaction. The loan is not a business judgment at all; it is a prohibited transaction.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="22">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">22</span>
+    <span class="qa-q-text">What is the difference between the two Part B decisions (not suing XCo vs. the loan)? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The two decisions warrant <strong>different treatment</strong>:
+    <ul>
+      <li><strong>Not suing XCo</strong> is a genuine <strong>commercial judgment</strong> where directors weighed litigation risks and costs. Even if shareholders disagree, courts will defer under <span class="case-ref">Intraco</span> because the directors acted within their management authority and investigated the matter.</li>
+      <li><strong>The loan</strong> is <strong>not a commercial judgment</strong> but a statutory violation (s 162) and a breach of fiduciary duty (s 157). Business judgment protection does not apply to prohibited transactions or decisions involving direct conflicts of interest.</li>
+    </ul>
+    This distinction illustrates the boundary between protected and unprotected director conduct.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="23">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">23</span>
+    <span class="qa-q-text">What is the Business Judgment Rule (BJR), and is it formally codified in Singapore? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The BJR is a principle that courts will not second-guess directors' business decisions made in good faith, with due care, and without conflicts of interest. In Singapore, the BJR is <strong>not formally codified</strong> but is effectively applied through cases like <span class="case-ref">Intraco</span> and <span class="case-ref">Scintronix</span>. Huan (1998) observes that Singapore courts apply BJR principles without formal codification. This contrasts with Delaware, where the BJR is formally structured, requiring directors to show they were informed, disinterested, and independent.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="24">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">24</span>
+    <span class="qa-q-text">What is the policy rationale for judicial non-interference in directors' decisions? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The rationale has several components:
+    <ol>
+      <li>Directors operate under <strong>uncertainty</strong> and must make real-time decisions; hindsight-based judicial review risks substituting commercial judgment.</li>
+      <li>Under <span class="case-ref">Re Smith and Fawcett</span> [1942] Ch 304, Lord Greene MR held that the test is what <strong>directors</strong>, not courts, consider to be in the company's interest.</li>
+      <li>Protecting directors from second-guessing encourages <strong>entrepreneurial risk-taking</strong>.</li>
+      <li>Courts lack the commercial expertise to evaluate complex business decisions.</li>
+    </ol>
+    This deference is justified for genuine business judgments.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="25">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">25</span>
+    <span class="qa-q-text">How might judicial non-interference inadequately protect minorities in private companies? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    In private companies like Sea Paradise:
+    <ol>
+      <li>There is <strong>no liquid market</strong> to exit, unlike public companies where dissatisfied shareholders can sell shares.</li>
+      <li>Where directors are <strong>entrenched</strong> through constitutional provisions and exit is difficult, non-interference leaves minorities without recourse.</li>
+      <li>Section 216 provides a safety valve but requires <strong>expensive litigation</strong> that many minority shareholders cannot afford.</li>
+      <li>The framework suits public companies with liquid markets but may be excessive for closed companies.</li>
+    </ol>
+    This creates a gap in protection for minorities trapped in private companies with entrenched boards.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="26">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">26</span>
+    <span class="qa-q-text">How does Delaware's formal BJR compare with Singapore's approach? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Delaware's formal BJR requires directors to affirmatively show they were <strong>informed, disinterested, and independent</strong>. Singapore's approach is less structured: <span class="case-ref">Intraco</span> asks whether directors honestly believed their decision served the company, and <span class="case-ref">Scintronix</span> adds an objective reasonableness check. Huan argues that Singapore could benefit from <strong>doctrinal clarity</strong> similar to Delaware's framework. The <span class="case-ref">Scintronix</span> objective element is a step towards formalisation, but the boundary between protected and unprotected conduct remains fact-sensitive and somewhat unpredictable.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="partb" data-id="27">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">27</span>
+    <span class="qa-q-text">What is the significance of <em>Re Smith and Fawcett</em> in the business judgment analysis? <span class="tag tag-partb">Part B</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    In <span class="case-ref">Re Smith and Fawcett</span> [1942] Ch 304, Lord Greene MR established the foundational principle that directors must exercise their powers "bona fide in what they consider, not what a court may consider, is in the interests of the company." This places the judgment with directors, not courts, and is the bedrock of judicial non-interference. <span class="case-ref">Intraco</span> gave this principle practical effect in Singapore. However, <span class="case-ref">Fawcett</span> protection only applies to decisions made in good faith; it does not shield statutory violations or dishonest exercises of power.
+  </div></div>
+</div>
+
+<!-- CROSS-CUTTING -->
+<div class="section-header" data-section="cross">Cross-Cutting and Analytical Questions</div>
+
+<div class="qa-card" data-category="cross" data-id="28">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">28</span>
+    <span class="qa-q-text">How does the loan to Director C serve as both a Part A and Part B issue? <span class="tag tag-cross">Cross-Cutting</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The loan is a dual-purpose issue:
+    <ul>
+      <li><strong>Part A (Oppression):</strong> The loan is the <strong>strongest single ground</strong> for oppression under s 216. It represents misuse of company resources (per <span class="case-ref">Sakae</span>), parallels the misappropriation in <span class="case-ref">Ayaz</span>, and when combined with the dividend drought, fits the <span class="case-ref">Weller</span> pattern.</li>
+      <li><strong>Part B (Business Judgment):</strong> The loan demonstrates the <strong>limits of business judgment protection</strong>. It is both a statutory contravention (s 162) and a breach of fiduciary duty (s 157), neither of which is protected by the BJR.</li>
+    </ul>
+    The loan thus connects both parts of the analysis, showing how the same conduct can be examined through different legal lenses.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="cross" data-id="29">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">29</span>
+    <span class="qa-q-text">If you were advising the directors, what could they have done differently to avoid liability? <span class="tag tag-cross">Cross-Cutting</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The directors could have:
+    <ol>
+      <li><strong>On the loan:</strong> Not made it at all, since it violates s 162 for non-EPCs. If a legitimate business purpose existed, the company could have arranged a <strong>corporate membership</strong> (held by the company, not C personally), or used guest passes and event bookings.</li>
+      <li><strong>On dividends:</strong> Declared reasonable dividends from the substantial profits, even if not distributing all earnings, to demonstrate good faith towards shareholders.</li>
+      <li><strong>On governance:</strong> Engaged with shareholders' concerns, held proper board meetings with recorded deliberations, and ensured transparency in decision-making.</li>
+      <li><strong>On XCo:</strong> While the decision not to sue is defensible, they could have documented their investigation and reasoning more thoroughly, and explored the possibility of personal liability against Mr X.</li>
+    </ol>
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="cross" data-id="30">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">30</span>
+    <span class="qa-q-text">What is the overall significance of this case for entrepreneurs and managers? <span class="tag tag-cross">Cross-Cutting</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    This case illustrates several critical lessons:
+    <ol>
+      <li><strong>Statutory compliance is non-negotiable:</strong> The s 162 prohibition on loans to directors cannot be circumvented by business justifications. Directors must know the law.</li>
+      <li><strong>Constitutional design matters:</strong> Entrenching provisions (like Articles 10-12) can become instruments of oppression if they lock out shareholders from governance.</li>
+      <li><strong>Cumulative conduct is assessed holistically:</strong> Individual acts that seem defensible in isolation may collectively establish oppression.</li>
+      <li><strong>Business judgment has limits:</strong> Courts protect genuine commercial decisions but not statutory violations or self-dealing.</li>
+      <li><strong>Minority protection in private companies is limited:</strong> Without a liquid market to exit, minority shareholders depend heavily on s 216, which requires costly litigation. Entrepreneurs should design governance structures that prevent deadlock and ensure fair treatment from the outset.</li>
+    </ol>
+  </div></div>
+</div>
+
+</main>
+
+<script>
+function toggleCard(el) {
+  el.closest('.qa-card').classList.toggle('open');
+}
+
+// Search
+const search = document.getElementById('search');
+const cards = document.querySelectorAll('.qa-card');
+const sections = document.querySelectorAll('.section-header');
+const statsEl = document.getElementById('stats');
+let activeFilter = 'all';
+
+function applyFilters() {
+  const query = search.value.toLowerCase().trim();
+  let visible = 0;
+  const visibleSections = new Set();
+
+  cards.forEach(card => {
+    const cat = card.dataset.category;
+    const text = card.textContent.toLowerCase();
+    const matchesFilter = activeFilter === 'all' || cat === activeFilter;
+    const matchesSearch = !query || text.includes(query);
+    const show = matchesFilter && matchesSearch;
+    card.style.display = show ? '' : 'none';
+    card.classList.toggle('highlight', query && matchesSearch);
+    if (show) {
+      visible++;
+      visibleSections.add(cat);
+    }
+  });
+
+  sections.forEach(s => {
+    s.style.display = visibleSections.has(s.dataset.section) ? '' : 'none';
+  });
+
+  statsEl.textContent = `Showing ${visible} of 30 questions`;
+
+  document.getElementById('noResults')?.remove();
+  if (visible === 0) {
+    const div = document.createElement('div');
+    div.id = 'noResults';
+    div.className = 'no-results';
+    div.textContent = 'No questions match your search.';
+    document.getElementById('main').appendChild(div);
+  }
+}
+
+search.addEventListener('input', applyFilters);
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+// Expand all
+let allExpanded = false;
+document.getElementById('expandAll').addEventListener('click', function() {
+  allExpanded = !allExpanded;
+  cards.forEach(card => {
+    if (card.style.display !== 'none') {
+      card.classList.toggle('open', allExpanded);
+    }
+  });
+  this.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && document.activeElement !== search) {
+    e.preventDefault();
+    search.focus();
+  }
+  if (e.key === 'Escape') {
+    search.value = '';
+    search.blur();
+    applyFilters();
+  }
+});
+</script>
+
+</body>
+</html>
