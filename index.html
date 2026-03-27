@@ -231,6 +231,7 @@
   .tag-parta { background: var(--blue-100); color: var(--blue-700); }
   .tag-partb { background: var(--green-100); color: var(--green-700); }
   .tag-cross { background: var(--amber-100); color: var(--amber-700); }
+  .tag-audience { background: var(--red-100); color: var(--red-700); }
 
   .no-results {
     text-align: center;
@@ -276,16 +277,17 @@
   <p>Unfair Treatment, Buy-Out, and Judicial Intervention in Directors' Business Decisions</p>
   <div class="controls">
     <input type="text" class="search-box" id="search" placeholder="Search questions and answers..." autofocus>
-    <button class="filter-btn active" data-filter="all">All (30)</button>
+    <button class="filter-btn active" data-filter="all">All (60)</button>
     <button class="filter-btn" data-filter="parta">Part A</button>
     <button class="filter-btn" data-filter="partb">Part B</button>
     <button class="filter-btn" data-filter="cross">Cross-Cutting</button>
+    <button class="filter-btn" data-filter="audience">Audience Q&A</button>
     <button class="expand-all" id="expandAll">Expand All</button>
   </div>
   <div class="keyboard-hint">Press / to search, Esc to clear</div>
 </header>
 
-<div class="stats" id="stats">Showing 30 of 30 questions</div>
+<div class="stats" id="stats">Showing 60 of 60 questions</div>
 
 <main id="main">
 
@@ -686,6 +688,339 @@
   </div></div>
 </div>
 
+<!-- AUDIENCE Q&A -->
+<div class="section-header" data-section="audience">Audience-Style Discussion Questions</div>
+
+<div class="qa-card" data-category="audience" data-id="31">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">31</span>
+    <span class="qa-q-text">You say the loan violates s 162, but what if the directors argue the loan was made to C in his capacity as an employee, not as a director? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    No, that would not change the analysis. <span class="statute-ref">Section 162(1)</span> prohibits loans to "any director" of the company, regardless of what capacity is claimed. C is indisputably a director of SEA. Even if C is also an employee, the prohibition is triggered by his status as a director. The only employee-related exception is for loans as part of a shareholder-approved employee benefits scheme, which does not apply here since no such scheme exists.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="32">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">32</span>
+    <span class="qa-q-text">If the shareholders hold approximately 50%, aren't they just as powerful as the directors? Why should the court treat them as oppressed? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Holding 50% of shares does not translate into control. The structural lock-in created by Articles 10-12 means the shareholders cannot: (a) remove any director-shareholder (Art 10); (b) amend Art 10 without 90% consent they cannot reach (Art 11, <span class="statute-ref">s 26A</span>); or (c) appoint new directors without board approval (Art 12). Despite holding 50%, they have <strong>no ability to change governance or influence board decisions</strong>. Section 216 protects against conduct that is commercially unfair, not just conduct affecting a numerical minority.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="33">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">33</span>
+    <span class="qa-q-text">You mention <em>Rayfield v Hands</em> to enforce the constitutional promise, but <em>Rayfield</em> deals with member-to-member obligations. How does it apply here? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    <span class="case-ref">Rayfield v Hands</span> is cited to support the enforceability of the constitutional bargain under <span class="statute-ref">s 39(1) CA</span>, not to impose a direct member-to-member obligation. The point is that shareholders who joined on the basis that Articles 10-12 would align interests have an enforceable expectation under the statutory contract. The breach of this expectation is then assessed as part of the commercial unfairness analysis under s 216, not through a direct <span class="case-ref">Rayfield</span> claim. <span class="case-ref">Over</span> confirms that such legitimate expectations are relevant to the oppression inquiry.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="34">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">34</span>
+    <span class="qa-q-text">You argue not suing XCo is defensible, but doesn't that contradict your Part A argument that the directors are acting oppressively? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The two analyses operate under <strong>different legal frameworks</strong>. Part A assesses cumulative commercial unfairness under s 216, where the totality of conduct establishes oppression. Part B assesses individual business decisions under the <span class="case-ref">Intraco</span>/<span class="case-ref">Scintronix</span> business judgment test. A director can make a defensible commercial judgment on one issue (XCo litigation) while simultaneously engaging in oppressive conduct on others (the loan, withholding dividends). The frameworks are not mutually exclusive.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="35">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">35</span>
+    <span class="qa-q-text">What if Director C argues the club membership has appreciated in value and he intends to repay the loan, so no harm was done? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    This fails on multiple levels. First, the loan is a <strong>statutory violation</strong> under s 162 regardless of repayment intent; the prohibition is on making the loan in the first place. Second, the membership appreciates in C's hands personally, not the company's, since it is non-transferable. Third, oppression is assessed at the time of the conduct, not by whether harm was eventually mitigated. The 10-year interest-free term itself represents a cost to the company (opportunity cost of capital) that shareholders bear while receiving no dividends.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="36">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">36</span>
+    <span class="qa-q-text">You mentioned criminal liability under s 162(6). Realistically, would directors actually face criminal prosecution for this kind of loan? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    While <span class="statute-ref">s 162(6)</span> does impose criminal liability (fines and/or imprisonment), criminal prosecution for such violations is relatively rare in practice. ACRA has discretion on enforcement. However, the existence of criminal liability is analytically significant because it demonstrates that the legislature considered loans to directors serious enough to <strong>criminalise</strong>, reinforcing that the BJR cannot protect such conduct. Even without actual prosecution, the criminal dimension strengthens the oppression case by showing the gravity of the violation.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="37">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">37</span>
+    <span class="qa-q-text">Could the shareholders have tried a derivative action under s 216A instead of an oppression claim under s 216? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Yes, a derivative action under <span class="statute-ref">s 216A</span> is theoretically possible, particularly for the loan (a wrong done to the company). However, s 216 is more appropriate here because the shareholders seek a <strong>personal remedy</strong> (buy-out), not a remedy on behalf of the company. The key distinction is that s 216 addresses wrongs to <strong>shareholders</strong> (commercial unfairness), while s 216A addresses wrongs to <strong>the company</strong>. <span class="case-ref">Sakae</span> clarified the boundary between these two remedies.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="38">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">38</span>
+    <span class="qa-q-text">Isn't the <em>Weller</em> dividend argument weak here since there's only 3 years without dividends, compared to 12 years in <em>Ayaz</em>? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Duration alone is not determinative. In <span class="case-ref">Weller</span> itself, the period of non-payment was not the sole factor; it was the <strong>combination</strong> of withheld dividends with other unfair conduct. Three years of no dividends despite "substantial profits" is significant, especially combined with directors compensating themselves through salaries, fees, and the interest-free loan. The cumulative analysis means the shorter timeframe is offset by the severity of the other grounds (statutory violation, structural lock-in, broken promise).
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="39">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">39</span>
+    <span class="qa-q-text">Director D is non-executive and holds no shares. Could D be personally liable for the loan decision? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Director D's liability depends on his involvement. If D participated in the board decision to approve the loan, he could be liable for breach of duty of care under <span class="statute-ref">s 157(1)</span>. However, D is IC's nominee and non-executive; if D was not involved in the decision or voted against it, he would likely not be liable. The report focuses on A, B, and C because: C has a direct conflict of interest as the beneficiary, and A and B breached their duty of care by authorising the transaction.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="40">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">40</span>
+    <span class="qa-q-text">You argue the <em>Scintronix</em> objective test is a step towards formalising BJR. But doesn't making it more objective risk the very hindsight bias you warn against? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    This is a valid tension. The <span class="case-ref">Scintronix</span> objective test ("could an honest and intelligent director have held that belief?") does introduce some risk of hindsight evaluation. However, it is calibrated as a <strong>floor</strong>, not a ceiling: it only catches decisions that no reasonable director could have made, not merely suboptimal ones. This differs from full hindsight review because it asks what was reasonable <strong>at the time of the decision</strong>, not whether the outcome was good.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="41">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">41</span>
+    <span class="qa-q-text">What if the shareholders were offered dividends but voted against the resolution themselves? Would that undermine their claim? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Yes, that would significantly weaken the claim. However, the facts indicate that dividends were simply "not declared" by the board, meaning the <strong>directors chose not to put a dividend resolution forward</strong>. Since declaring dividends is a board-initiated process (directors recommend, shareholders approve), the shareholders had no mechanism to force a dividend declaration, which reinforces their oppression argument.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="42">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">42</span>
+    <span class="qa-q-text">You mentioned the court could order a dividend policy under s 216(2)(b). But wouldn't the entrenched directors just ignore such an order? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    A court order under <span class="statute-ref">s 216(2)(b)</span> is legally binding and enforceable through <strong>contempt proceedings</strong>. Directors who defy a court-ordered dividend policy would face contempt of court sanctions, potentially including fines or imprisonment. However, the practical concern is valid: ongoing enforcement requires continued court supervision. This is precisely why a <strong>buy-out</strong> under s 216(2)(d) is the cleaner remedy; it is a one-time resolution that severs the relationship entirely.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="43">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">43</span>
+    <span class="qa-q-text">You rely heavily on <em>Ayaz</em>, but that case involved 12 years of oppression including unconstitutional share allotments. Isn't Sea Paradise less severe? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The Sea Paradise situation is less extreme in duration but not necessarily in severity. <span class="case-ref">Ayaz</span> is cited for its <strong>legal principles</strong> (cumulative assessment, interest-free loans as misappropriation, dividend withholding as oppression), not as a direct factual parallel. Sea Paradise has its own aggravating factors absent in <span class="case-ref">Ayaz</span>: a clear s 162 statutory violation, a structural lock-in under <span class="statute-ref">s 26A</span>, and a broken constitutional promise. The question is whether commercial unfairness is established, not whether it matches <span class="case-ref">Ayaz</span> in degree.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="44">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">44</span>
+    <span class="qa-q-text">If the club membership genuinely helps the company's business (C actually entertains major clients there), does that change the s 162 analysis? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    No. <span class="statute-ref">Section 162</span> is a <strong>bright-line prohibition</strong>: a company shall not make a loan to a director, regardless of the purpose. The business justification might be relevant to a business judgment analysis, but it cannot override a statutory prohibition. Even if the membership genuinely served business purposes, the correct approach would have been to arrange it as a company expense (corporate membership or reimbursement) rather than a personal loan. The fact that directors chose the structure that benefits C most further undermines their justification.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="45">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">45</span>
+    <span class="qa-q-text">How would the analysis change if SEA were an exempt private company? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    If SEA were an EPC, the s 162 prohibition would not apply, removing the strongest statutory ground. However, the <strong>oppression analysis under s 216 would remain largely intact</strong>: the interest-free loan could still constitute misuse of company resources under <span class="case-ref">Sakae</span> and <span class="case-ref">Ayaz</span>, the dividend drought would still support oppression under <span class="case-ref">Weller</span>, and the structural lock-in would still be relevant. In Part B, without the statutory violation, the loan would be evaluated purely on whether it passes the <span class="case-ref">Intraco</span>/<span class="case-ref">Scintronix</span> test, where it would still likely fail.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="46">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">46</span>
+    <span class="qa-q-text">Later shareholders accepted the constitution when they bought shares. Shouldn't caveat emptor apply? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    This is a reasonable counter-argument, addressed by the contractual approach in <span class="case-ref">Over</span>. While later shareholders did accept the constitution, <span class="case-ref">Over</span> establishes that the test for commercial unfairness considers the <strong>conditions of fair play that shareholders are entitled to expect</strong>, which includes expectations about how the constitution will be operated. The founders' promise creates a legitimate expectation that applies even to later shareholders who relied on the same constitutional bargain. Caveat emptor does not protect against directors operating the constitution in a manner that is commercially unfair.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="47">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">47</span>
+    <span class="qa-q-text">In your critical commentary, you suggest a more formal BJR framework. Couldn't that increase litigation by giving shareholders more grounds to challenge directors? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Yes, this is the central trade-off. A more formal BJR could increase litigation costs and create a chilling effect on entrepreneurial risk-taking. However, the current informal approach creates <strong>uncertainty</strong> about where the line falls. Huan's comparison with Delaware suggests that formal criteria (informed, disinterested, independent) can actually <strong>reduce</strong> litigation by providing clearer safe harbours for directors. The argument is not for more litigation but for clearer rules that benefit both directors (who know what is required) and shareholders (who know what to expect).
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="48">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">48</span>
+    <span class="qa-q-text">What if Directors A and B claim they genuinely believed the loan was lawful because they didn't know about s 162? Does ignorance of the law provide any defence? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    No. Ignorance of the law is not a defence to a statutory violation. <span class="statute-ref">Section 162</span> imposes an objective prohibition; the directors' subjective belief about its legality is irrelevant. Under <span class="statute-ref">s 157(1)</span>, directors have a duty to act honestly and use <strong>reasonable diligence</strong>, which includes understanding the legal constraints on their powers. A director who authorises a loan without checking whether it is legally permissible has failed the standard of care expected.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="49">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">49</span>
+    <span class="qa-q-text">What about Mr X's personal liability for signing knowing XCo was insolvent? Shouldn't the directors have pursued that avenue? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    This is the strongest criticism of the directors' decision. If Mr X signed knowing XCo was insolvent, there may be grounds for <strong>personal liability</strong> against Mr X (e.g., fraudulent misrepresentation, or potentially fraudulent trading). An honest director aware of these facts should at least investigate this avenue. However, <span class="case-ref">Inter-Pacific Petroleum Pte Ltd v Goh Jin Hian</span> requires proof that litigation would have actually yielded recovery. If Mr X is also personally insolvent, pursuing him would be equally futile. The directors' position is defensible but not unassailable.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="50">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">50</span>
+    <span class="qa-q-text">Could the shareholders argue that the refusal to sue XCo is itself an act of oppression under s 216, rather than just a business judgment issue? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Potentially, but it would be a weaker ground. The decision not to sue XCo is a genuine commercial judgment where directors weighed litigation risks. To succeed as an oppression ground, the shareholders would need to show the refusal was motivated by <strong>bad faith or self-interest</strong> rather than legitimate commercial reasoning. If the directors refused to sue because they wanted to avoid scrutiny of their own conduct (e.g., the loan), that could support an oppression claim. Standing alone, however, the XCo decision is more naturally analysed under Part B's business judgment framework.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="51">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">51</span>
+    <span class="qa-q-text">Your presentation shows the loan as both a "strong ground" (Part A) and "clearly faultable" (Part B). Are you essentially double-counting the same conduct? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    No. Parts A and B address <strong>different legal questions</strong> using different frameworks. Part A asks whether the shareholders have been treated with commercial unfairness justifying a buy-out; the loan is one of several cumulative grounds. Part B asks whether the directors can be faulted for their specific business decisions. The same factual conduct can simultaneously constitute oppression (a wrong to shareholders) and a breach of duty (a wrong to the company). These are complementary analyses, not double-counting.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="52">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">52</span>
+    <span class="qa-q-text">What happens after a buy-out is ordered? Who determines "fair value" and how is it calculated? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Once a court orders a buy-out under <span class="statute-ref">s 216(2)(d)</span>, the shares are typically valued by an <strong>independent valuer</strong> appointed by the court or agreed by the parties. "Fair value" generally means the proportionate share of the company's total value <strong>without any minority discount</strong> (since the minority is being bought out due to oppression, not voluntarily selling). The valuation date is usually the date of the court order. Disputes over valuation methodology (asset-based, earnings-based, or market-based) are common and can themselves become contentious.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="53">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">53</span>
+    <span class="qa-q-text">If the directors offered to declare dividends now, would that defeat the shareholders' oppression claim? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Unlikely. Oppression is assessed based on the directors' <strong>past conduct</strong>, not their willingness to make amends after litigation is threatened. While a genuine offer might influence the remedy (e.g., dividend policy instead of buy-out), it does not erase three years of withheld dividends, the s 162 violation, or the broken constitutional promise. Courts would likely view a last-minute dividend offer as a <strong>tactical concession</strong> rather than evidence of good faith, especially when the structural lock-in remains unchanged.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="54">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">54</span>
+    <span class="qa-q-text">You cite Huan's 1998 article comparing Delaware and Singapore. Isn't that outdated given <em>Scintronix</em> was decided in 2014? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Huan's article is from 1998, but its core observation remains valid: Singapore applies BJR principles informally without codification. The most significant development since then is <span class="case-ref">Scintronix</span> (2014), which added the objective element, representing the formalisation step Huan advocated. However, Singapore still has <strong>not codified a formal BJR</strong>, so Huan's comparison with Delaware's structured framework remains relevant. The article is cited for its analytical insight, not its currency on specific doctrinal points.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="55">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">55</span>
+    <span class="qa-q-text">What if the shareholders themselves are directors of other companies and have engaged in similar practices? Would that be relevant? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Generally, no. The oppression analysis under s 216 focuses on <strong>the conduct of the company's affairs</strong>, not the personal conduct of the complainants in unrelated contexts. Standing under s 216(1) is based on membership, not character. However, if the shareholders had previously approved or acquiesced in the very conduct they now complain of (e.g., voted in favour of the loan), that could be relevant to whether they come with "clean hands."
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="56">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">56</span>
+    <span class="qa-q-text">You mention the court may consider alternatives if a 50% buy-out strains the company. What specific alternatives might work? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Several alternatives under <span class="statute-ref">s 216(2)</span> could work: (a) ordering a <strong>mandatory dividend policy</strong> so shareholders receive returns; (b) requiring the loan to C to be recalled immediately rather than over 10 years; (c) requiring amendment of Articles 10-12 to remove the structural lock-in; (d) appointing an independent director to the board; or (e) ordering the company to buy back shares in <strong>instalments</strong> rather than a lump sum. The court has wide discretion to craft remedies that address the specific forms of unfairness while preserving the going concern.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="57">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">57</span>
+    <span class="qa-q-text">You argue club memberships cannot be held by companies. But what about corporate memberships that some clubs offer? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    This is an important distinction. Some clubs do offer <strong>corporate memberships</strong> held in the company's name and transferable. If SEA had arranged a corporate membership, it would not be a loan to a director and s 162 would not be engaged. The fact that the directors chose an <strong>individual</strong> membership registered under C's name, rather than a corporate membership, is precisely what makes it problematic. It demonstrates the transaction was structured to benefit C personally rather than the company, which is the core of both the s 162 violation and the <span class="case-ref">Intraco</span> business judgment failure.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="58">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">58</span>
+    <span class="qa-q-text">Does Director D have any obligation to act in the shareholders' interests, given that D is IC's nominee? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Director D, like all directors, owes fiduciary duties to <strong>the company</strong> under <span class="statute-ref">s 157</span>, not to IC specifically or to any particular shareholder group. The fact that D is IC's nominee does not modify this duty. D must exercise <strong>independent judgment</strong> in the company's best interests, even if that conflicts with IC's wishes. If D simply acts as IC's puppet without exercising independent judgment, D would be in breach of fiduciary duty.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="59">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">59</span>
+    <span class="qa-q-text">In a real exam, would you advise answering Part A or Part B first, and how would you structure time? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Since Part A carries <strong>70 marks</strong> and Part B carries <strong>30 marks</strong>, the weighting should guide time allocation (roughly 70/30 split). Start with Part A because it contains more legal analysis and more marks. Within Part A, use the <strong>IRAC structure</strong> (Issue, Rule, Application, Conclusion) for each ground of oppression, then address cumulative weight and remedy. For Part B, handle the two decisions separately (XCo is defensible, loan is faultable), then add critical commentary. The key is to demonstrate depth of case law knowledge and application to facts.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="audience" data-id="60">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">60</span>
+    <span class="qa-q-text">If the shareholders succeed in their s 216 claim, could the directors face any personal consequences beyond the buy-out order? <span class="tag tag-audience">Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Yes, several consequences could follow: (a) the s 162 violation carries <strong>criminal liability</strong> under s 162(6), including fines and imprisonment; (b) the breach of fiduciary duty under s 157 could lead to <strong>personal liability</strong> for losses caused to the company; (c) the court could make orders under s 216(2) directing specific conduct; (d) the directors could be <strong>disqualified</strong> from acting as directors under s 149 if found unfit; and (e) the adverse findings could affect the directors' reputation and ability to serve on other boards. The oppression and breach of duty findings create separate streams of potential liability.
+  </div></div>
+</div>
+
 </main>
 
 <script>
@@ -723,7 +1058,7 @@ function applyFilters() {
     s.style.display = visibleSections.has(s.dataset.section) ? '' : 'none';
   });
 
-  statsEl.textContent = `Showing ${visible} of 30 questions`;
+  statsEl.textContent = `Showing ${visible} of 60 questions`;
 
   document.getElementById('noResults')?.remove();
   if (visible === 0) {
