@@ -2,7 +2,7 @@
 
 ## Sea Paradise Pte Ltd: Unfair Treatment, Buy-Out, and Judicial Intervention
 
-60 possible exam/discussion questions with detailed answers based on the final report and presentation slides.
+71 possible exam/discussion questions with detailed answers based on the final report and presentation slides.
 
 ---
 
@@ -410,3 +410,71 @@ The loan thus connects both parts of the analysis, showing how the same conduct 
 ### Q60. If the shareholders succeed in their s 216 claim, could the directors face any personal consequences beyond the company being ordered to buy out shares?
 
 **Answer:** Yes, several consequences could follow: (a) the s 162 violation carries **criminal liability** under s 162(6), including fines and imprisonment; (b) the breach of fiduciary duty under s 157 could lead to personal liability for losses caused to the company; (c) the court could make orders under s 216(2) directing specific conduct by the directors; (d) the directors could be disqualified from acting as directors under s 149 if the court finds them unfit; and (e) the adverse findings could affect the directors' reputation and their ability to serve on other boards. The oppression finding and the breach of duty findings create separate streams of potential liability.
+
+---
+
+## Real Audience Questions (From Class Discussion, Q61-71)
+
+### Q61. Maanas Upadhyay: In *Ayaz*, the claimant had ~22% and was powerless. Here, if 50% is held, is it still applicable as a minority? Can shareholders operationally paralyse by blocking resolutions and use that to negotiate privately?
+
+**Answer:** The 50% bloc does have some negative power: they can block special resolutions (which require 75% under s 184(1)), preventing constitutional amendments. However, they cannot pass ordinary resolutions on their own either, creating deadlock rather than control. Section 216 does not require the applicant to be a numerical minority; it is available to "any member." The Court of Appeal in *Over* confirmed that commercial unfairness is the test, not numerical weakness. The structural lock-in (Articles 10-12) means that even with 50%, they cannot remove directors, amend the constitution, or appoint new directors. As for blocking resolutions to negotiate privately, that is a practical strategy but does not address the underlying oppression. Directors could simply continue drawing salaries while shareholders receive nothing.
+
+---
+
+### Q62. Jonathan Paul Lee Shan Xian: Is the interest-free personal loan good enough alone to prove commercial unfairness? Or the lack of dividends? Or do both reasons together prove commercial unfairness?
+
+**Answer:** The interest-free loan is arguably strong enough on its own because it involves a clear s 162 statutory violation. In *Sakae*, diversion of company funds through transactions benefiting directors personally was sufficient for an oppression finding. However, the cumulative approach is strategically stronger and doctrinally preferred. In *Ayaz*, the court assessed multiple grounds together. Each ground on its own might be contestable, but taken cumulatively, the pattern of self-dealing becomes undeniable. Recommendation: present the loan as the strongest single ground, but use the dividend drought and structural lock-in to demonstrate a pattern of commercial unfairness.
+
+---
+
+### Q63. Parkhi Jain: If a director breaks the law, is that alone enough for the court to act, or must shareholders also show they were treated unfairly?
+
+**Answer:** Under s 216, shareholders must show commercial unfairness, not just illegality. A statutory breach is strong evidence of oppression but is not automatically sufficient. *Sakae* clarified the distinction between personal wrongs (s 216) and corporate wrongs (s 216A derivative action). If a director's illegal act harms the company generally but does not unfairly prejudice specific shareholders, it may be a corporate wrong better addressed through s 216A. However, where the illegal act is part of a pattern that disadvantages shareholders (as here, where the s 162 violation diverts funds while shareholders receive no dividends), it crosses into commercial unfairness under s 216.
+
+---
+
+### Q64. Xander Arthur Decat: Club memberships are quite common, so if directors can show genuine commercial benefit, should that change the outcome? And would structuring it as a company expense rather than a loan avoid s 162(1)?
+
+**Answer:** On the first point: even if club memberships are common, this arrangement fails because the membership is a personal asset registered under C's name. Cheaper alternatives exist (guest passes, corporate event bookings, corporate memberships) that do not benefit C personally. The *Intraco* test asks whether an honest director could reasonably conclude the decision served the company; choosing the option that maximises C's personal benefit fails this test. On the second point: yes, structuring matters enormously. If SEA had paid the club directly as a company expense (corporate membership or reimbursable business entertainment), s 162 would not be engaged because there would be no "loan to a director." The fact that directors structured it as a personal loan is precisely what triggers the statutory prohibition and strengthens the inference of personal benefit.
+
+---
+
+### Q65. Zheng Dongyang: How exactly was this loan authorized (Board or Shareholders Meeting), and does the lack of clarity make it too strong to conclude it breaches s 162?
+
+**Answer:** The lack of clarity actually strengthens the oppression argument. Section 162(1) is a blanket prohibition: "a company shall not make a loan to a director." It does not matter who authorized it or how. The only exceptions are for EPCs, banks, and shareholder-approved employee benefit schemes; none apply here. In *Ayaz*, the court specifically noted that loans were made without recorded board discussion, treating the absence of proper process as an aggravating factor (evidence of misappropriation). If the loan was approved without proper deliberation, that resembles *Ayaz*; if it was not formally authorized at all, that is even worse. Either way, s 162 is breached.
+
+---
+
+### Q66. Beverly Mshai: What if the directors had obtained shareholder approval for the loan at a general meeting? Does s 162's prohibition make the transaction unrescuable regardless of consent?
+
+**Answer:** Section 162 is a mandatory statutory prohibition, not a default rule overridable by shareholder consent. Even unanimous shareholder approval cannot authorize a loan the statute prohibits. The only route to make a director loan lawful (for non-EPCs) is if it falls within the narrow statutory exception: a shareholder-approved employee benefits scheme. A one-off personal loan for a club membership does not qualify. So shareholder approval would not rescue the transaction. The prohibition is absolute for non-EPCs. This is unlike some corporate actions where shareholder ratification can cure a breach; s 162 violations cannot be ratified because the legislature intended a bright-line rule.
+
+---
+
+### Q67. Jiaxin Gan: Should the loan to Director C be seen in isolation, or as part of a broader pattern of oppression?
+
+**Answer:** Definitely as part of a broader pattern. In *Sakae*, the Court of Appeal held that oppressive conduct should be assessed cumulatively, not in isolation. In *Ayaz*, the court considered multiple acts together as a pattern of oppression. Viewing the loan in isolation would allow directors to argue it was a one-off misjudgment; viewing it within the pattern (loan + no dividends + structural lock-in + broken constitutional promise) reveals systematic prioritisation of directors' interests. The cumulative approach also makes the *Weller* pattern applicable: inadequate dividends coupled with other unfair conduct. The loan alone is a statutory violation; the loan within the pattern is oppression.
+
+---
+
+### Q68. Wu Yixuan: Is the decision not to sue XCo still protected by the BJR, even if the directors did not investigate Mr X's personal liability? Can total inaction still be a reasonable business decision?
+
+**Answer:** The *Scintronix* objective test asks whether an honest and intelligent director could have held that belief. Total inaction (refusing to investigate) would likely fail this test. However, the facts suggest the directors did investigate before deciding not to sue, which is why the decision is defensible. The key distinction is between: (a) investigating and concluding litigation is not worthwhile (protected), versus (b) refusing to investigate at all (potentially not protected). On Mr X's personal liability: this is the strongest counterargument. Mr X signed knowing XCo was insolvent, potentially giving rise to personal liability for fraudulent misrepresentation. An honest director should at least consider this avenue. However, *Inter-Pacific Petroleum v Goh Jin Hian* requires proof that litigation would have actually yielded recovery.
+
+---
+
+### Q69. Wang Yue: Does s 156 CA apply? If Director C failed to declare his interest, would that be a more direct statutory breach?
+
+**Answer:** Yes, s 156 CA is potentially applicable and would provide an additional ground. Section 156 requires a director who is interested in a transaction to declare the nature of his interest at a board meeting. Director C, as the direct beneficiary, has a clear personal interest. If C failed to declare this interest, that would constitute a separate statutory breach independent of the s 162 violation. However, we focused on s 162 because it is the more powerful ground: s 162 prohibits the transaction entirely (making it unlawful regardless of disclosure), whereas s 156 only requires disclosure (the transaction could theoretically proceed after disclosure). The s 162 breach makes the s 156 question somewhat academic, since the loan is prohibited whether or not C disclosed his interest.
+
+---
+
+### Q70. Huang Yuzhe: What specific metrics should "clear accountability thresholds" include? Could it be mandated that if profits reach a certain level for X consecutive years without a dividend, it triggers an external audit or grants minority shareholders specific voting rights?
+
+**Answer:** Currently, Singapore law does not mandate automatic triggers based on financial metrics. However, such mechanisms could be implemented through: (a) constitutional provisions (companies could adopt articles requiring dividend declarations when profits exceed a threshold); (b) shareholders' agreements (minority shareholders could negotiate minimum dividend policies contractually); or (c) legislative reform. The challenge is flexibility: companies may legitimately need to retain profits for expansion or contingencies. Delaware's approach of requiring directors to justify decisions (informed, disinterested, independent) provides accountability without rigid metrics. A middle ground might be requiring directors to provide written reasons when withholding dividends despite sustained profitability.
+
+---
+
+### Q71. Ardy Shaqeal: Other than a buy-out, could a different business or legal avenue be taken as a form of "remedy"?
+
+**Answer:** Yes, s 216(2) gives the court wide remedial discretion. Alternatives include: (a) regulating future conduct under s 216(2)(b), such as ordering a mandatory dividend policy or requiring independent director appointments; (b) directing specific acts under s 216(2)(a), such as ordering the loan to be recalled immediately; (c) authorising a derivative action under s 216(2)(c) for the company to recover the loan; (d) amending the constitution under s 216(2)(a) to remove Articles 10-12; or (e) winding up under s 216(2)(f), though this is a last resort. Courts often combine remedies. For Sea Paradise, the most pragmatic combination might be: recall the loan + impose a dividend policy + modify Articles 10-12, if a full buy-out would strain company finances.

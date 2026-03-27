@@ -232,6 +232,7 @@
   .tag-partb { background: var(--green-100); color: var(--green-700); }
   .tag-cross { background: var(--amber-100); color: var(--amber-700); }
   .tag-audience { background: var(--red-100); color: var(--red-700); }
+  .tag-real { background: #f0e6ff; color: #6b21a8; }
 
   .no-results {
     text-align: center;
@@ -277,17 +278,18 @@
   <p>Unfair Treatment, Buy-Out, and Judicial Intervention in Directors' Business Decisions</p>
   <div class="controls">
     <input type="text" class="search-box" id="search" placeholder="Search questions and answers..." autofocus>
-    <button class="filter-btn active" data-filter="all">All (60)</button>
+    <button class="filter-btn active" data-filter="all">All (71)</button>
     <button class="filter-btn" data-filter="parta">Part A</button>
     <button class="filter-btn" data-filter="partb">Part B</button>
     <button class="filter-btn" data-filter="cross">Cross-Cutting</button>
     <button class="filter-btn" data-filter="audience">Audience Q&A</button>
+    <button class="filter-btn" data-filter="real">Real Audience</button>
     <button class="expand-all" id="expandAll">Expand All</button>
   </div>
   <div class="keyboard-hint">Press / to search, Esc to clear</div>
 </header>
 
-<div class="stats" id="stats">Showing 60 of 60 questions</div>
+<div class="stats" id="stats">Showing 71 of 71 questions</div>
 
 <main id="main">
 
@@ -1021,6 +1023,130 @@
   </div></div>
 </div>
 
+<!-- REAL AUDIENCE Q&A -->
+<div class="section-header" data-section="real">Real Audience Questions (From Class Discussion)</div>
+
+<div class="qa-card" data-category="real" data-id="61">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">61</span>
+    <span class="qa-q-text"><strong>Maanas Upadhyay:</strong> In <em>Ayaz</em>, the claimant had ~22% and was powerless. Here, if 50% is held, is it still applicable as a minority? Can shareholders operationally paralyse by blocking resolutions and use that to negotiate privately? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Great question. The 50% bloc does have some negative power: they can block special resolutions (which require 75% under <span class="statute-ref">s 184(1)</span>), preventing constitutional amendments or certain corporate actions. However, they <strong>cannot pass ordinary resolutions on their own</strong> either, creating a deadlock rather than control. More importantly, s 216 does not require the applicant to be a numerical minority; it is available to "any member." The Court of Appeal in <span class="case-ref">Over</span> confirmed that commercial unfairness is the test, not numerical weakness. The structural lock-in (Articles 10-12) means that even with 50%, they cannot remove directors, amend the constitution, or appoint new directors. As for using blocking power to negotiate privately, that is a practical strategy, but it does not address the underlying oppression (no dividends, misuse of funds). The directors could simply continue drawing salaries while shareholders receive nothing, making litigation under s 216 the more effective path.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="62">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">62</span>
+    <span class="qa-q-text"><strong>Jonathan Paul Lee Shan Xian:</strong> Is the interest-free personal loan good enough alone to prove commercial unfairness? Or the lack of dividends? Or do you think both reasons are needed? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The interest-free loan is arguably strong enough <strong>on its own</strong> because it involves a clear <span class="statute-ref">s 162</span> statutory violation, not just a judgment call. In <span class="case-ref">Sakae</span>, diversion of company funds through transactions benefiting directors personally was sufficient for an oppression finding. However, the cumulative approach is strategically stronger and doctrinally preferred. In <span class="case-ref">Ayaz</span>, the court assessed multiple grounds together: share allotments, loans, and dividend withholding. Each ground on its own might be contestable (e.g., directors might argue dividends were withheld for legitimate reinvestment), but taken cumulatively, the pattern of self-dealing becomes undeniable. Our recommendation: present the loan as the strongest single ground, but use the dividend drought and structural lock-in to demonstrate a <strong>pattern</strong> of commercial unfairness, which makes the case much harder to defend against.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="63">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">63</span>
+    <span class="qa-q-text"><strong>Parkhi Jain:</strong> If a director breaks the law, is that alone enough for the court to act, or must shareholders also show they were treated unfairly? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Under <span class="statute-ref">s 216</span>, shareholders must show <strong>commercial unfairness</strong>, not just illegality. A statutory breach by a director is strong evidence of oppression but is not automatically sufficient. The court in <span class="case-ref">Sakae</span> clarified the distinction between <strong>personal wrongs</strong> (actionable under s 216) and <strong>corporate wrongs</strong> (actionable under s 216A derivative action). If a director's illegal act harms the company generally but does not unfairly prejudice specific shareholders, it may be a corporate wrong better addressed through s 216A. However, where the illegal act is part of a pattern that disadvantages shareholders (as here, where the s 162 violation diverts funds to a director while shareholders receive no dividends), it crosses into commercial unfairness under s 216. So the answer is: illegality alone is not enough for s 216, but illegality that forms part of an unfair pattern is.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="64">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">64</span>
+    <span class="qa-q-text"><strong>Xander Arthur Decat:</strong> Club memberships are quite common. If directors can show genuine commercial benefit (new clients, relationships), should that change the outcome? And would structuring it as a company expense rather than a loan avoid s 162(1)? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Two excellent sub-questions. On the first: even if club memberships are common in business, this particular arrangement fails because the membership is a <strong>personal asset</strong> registered under C's name. If directors wanted to provide club access for business purposes, there were cheaper alternatives that do not benefit C personally: guest passes, corporate event bookings, or a corporate membership held by the company. The <span class="case-ref">Intraco</span> test asks whether an honest director could reasonably conclude the decision served the company; choosing the option that maximises C's personal benefit over cheaper alternatives fails this test.<br><br>On the second point: <strong>yes, structuring matters enormously</strong>. If SEA had paid the club directly as a company expense (e.g., a corporate membership or reimbursable business entertainment), <span class="statute-ref">s 162</span> would not be engaged because there would be no "loan to a director." The fact that the directors structured it as a personal loan to C, rather than a company expense, is precisely what triggers the statutory prohibition and strengthens the inference that the transaction was designed to benefit C personally.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="65">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">65</span>
+    <span class="qa-q-text"><strong>Zheng Dongyang:</strong> The loan is granted to Director C, but it's unclear whether it was properly approved. How was this loan authorized (Board or Shareholders Meeting), and does this lack of clarity weaken the conclusion that it breaches s 162? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    The lack of clarity actually <strong>strengthens</strong> the oppression argument, not weakens it. <span class="statute-ref">Section 162(1)</span> is a blanket prohibition: "a company shall not make a loan to a director." It does not matter <strong>who</strong> authorized it or <strong>how</strong>; the prohibition applies regardless of whether it was approved by the board, a shareholders' meeting, or neither. The only exceptions are for EPCs, banks, and shareholder-approved employee benefit schemes; none apply here. In <span class="case-ref">Ayaz</span>, the court specifically noted that the loans were made <strong>without recorded board discussion</strong>, treating the absence of proper process as an aggravating factor (evidence of misappropriation). So if the loan was approved by the board without proper deliberation, that resembles <span class="case-ref">Ayaz</span>; if it was not formally authorized at all, that is even worse. Either way, s 162 is breached.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="66">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">66</span>
+    <span class="qa-q-text"><strong>Beverly Mshai:</strong> What if the directors had obtained shareholder approval for the loan at a general meeting? Would that rescue the transaction, or does s 162's prohibition make it unrescuable regardless of consent? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    <span class="statute-ref">Section 162</span> is a <strong>mandatory statutory prohibition</strong>, not a default rule that can be overridden by shareholder consent. Even unanimous shareholder approval cannot authorize a loan that the statute prohibits. The only route to make a director loan lawful (for non-EPCs) would be if it falls within one of the narrow statutory exceptions: as part of a shareholder-approved <strong>employee benefits scheme</strong> (not a one-off personal loan). A single loan for a personal club membership does not qualify as an "employee benefits scheme." So the answer is: shareholder approval would not rescue the transaction. The prohibition is absolute for non-EPCs. This is unlike some other corporate actions where shareholder ratification can cure a breach; s 162 violations cannot be ratified because the legislature intended a bright-line rule.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="67">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">67</span>
+    <span class="qa-q-text"><strong>Jiaxin Gan:</strong> Should the loan to Director C be seen in isolation, or as part of a broader pattern of oppression? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Definitely as part of a <strong>broader pattern</strong>. This is both legally required and strategically optimal. In <span class="case-ref">Sakae</span>, the Court of Appeal held that oppressive conduct should be assessed <strong>cumulatively</strong>, not in isolation. In <span class="case-ref">Ayaz</span>, the court considered unconstitutional share allotments, interest-free loans, and 12 years without dividends together as a pattern of oppression. Viewing the loan in isolation would allow the directors to argue it was a one-off misjudgment; viewing it as part of a pattern (loan + no dividends + structural lock-in + broken constitutional promise) reveals a systematic prioritisation of directors' interests over shareholders'. The cumulative approach also makes the <span class="case-ref">Weller</span> pattern applicable: inadequate dividends <strong>coupled with</strong> other unfair conduct. The loan alone is a statutory violation; the loan within the pattern is oppression.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="68">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">68</span>
+    <span class="qa-q-text"><strong>Wu Yixuan:</strong> Is the decision not to sue XCo still protected by the BJR, even if the directors did not investigate whether Mr X could be held personally liable? Can total inaction still be a reasonable business decision? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Excellent point. The <span class="case-ref">Scintronix</span> objective test asks whether an honest and intelligent director <strong>could</strong> have held that belief. Total inaction, where directors refuse to even investigate, would likely fail this test. However, the facts suggest the directors <strong>did investigate</strong> the matter before deciding not to sue, which is why we conclude the decision is defensible. The key distinction is between: (a) investigating and concluding that litigation is not worthwhile (protected by BJR), versus (b) refusing to investigate at all (potentially not protected). On Mr X's personal liability specifically, this is the strongest counterargument: Mr X signed knowing XCo was insolvent, potentially giving rise to personal liability for fraudulent misrepresentation. An honest director should at least consider this avenue. However, even if the directors breached their duty by not investigating Mr X personally, <span class="case-ref">Inter-Pacific Petroleum v Goh Jin Hian</span> requires proof that the litigation <strong>would have actually yielded recovery</strong>. If Mr X is also judgment-proof, the breach caused no loss.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="69">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">69</span>
+    <span class="qa-q-text"><strong>Wang Yue:</strong> Does s 156 CA apply? If Director C failed to declare his interest in the loan transaction, would that be a more direct statutory breach? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Yes, <span class="statute-ref">s 156 CA</span> is potentially applicable and would provide an additional ground. Section 156 requires a director who is interested in a transaction to declare the nature of his interest at a board meeting. Director C, as the direct beneficiary of the loan, has a clear personal interest in the transaction. If C failed to declare this interest to the board before or at the meeting where the loan was discussed, that would constitute a <strong>separate statutory breach</strong> of s 156, independent of the s 162 violation. This is a good observation that strengthens the case further. However, we focused on s 162 because it is the more powerful ground: s 162 prohibits the transaction entirely (making it unlawful regardless of disclosure), whereas s 156 only requires disclosure (the transaction could theoretically proceed after disclosure). The s 162 breach makes the s 156 question somewhat academic, since the loan is prohibited whether or not C disclosed his interest.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="70">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">70</span>
+    <span class="qa-q-text"><strong>Huang Yuzhe:</strong> What specific metrics should "clear accountability thresholds" include? Could it be mandated that if profits reach a certain level for X consecutive years without a dividend, it triggers an external audit or grants minority shareholders specific voting rights? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    This is a creative policy proposal. Currently, Singapore law does not mandate automatic triggers based on financial metrics. However, such mechanisms could be implemented through: (a) <strong>constitutional provisions</strong>: companies could voluntarily adopt articles requiring dividend declarations when profits exceed a threshold (e.g., "if net profit exceeds $X for two consecutive years, the board must declare a dividend of at least Y%"); (b) <strong>shareholders' agreements</strong>: minority shareholders could negotiate minimum dividend policies as a contractual right; or (c) <strong>legislative reform</strong>: mandating external audits or enhanced minority rights when certain conditions are met. The challenge with automatic triggers is flexibility: companies may legitimately need to retain profits for expansion, debt reduction, or contingencies. Delaware's approach of requiring directors to justify their decisions (informed, disinterested, independent) provides accountability without rigid metrics. A middle ground might be requiring directors to <strong>provide written reasons</strong> when withholding dividends despite sustained profitability, shifting the burden of explanation.
+  </div></div>
+</div>
+
+<div class="qa-card" data-category="real" data-id="71">
+  <div class="qa-question" onclick="toggleCard(this)">
+    <span class="qa-num">71</span>
+    <span class="qa-q-text"><strong>Ardy Shaqeal:</strong> Other than a buy-out, could a different business or legal avenue be taken as a form of "remedy"? <span class="tag tag-real">Real Audience</span></span>
+    <span class="qa-toggle">&#9662;</span>
+  </div>
+  <div class="qa-answer"><div class="qa-answer-inner">
+    Yes, <span class="statute-ref">s 216(2)</span> gives the court wide remedial discretion beyond buy-outs. Alternative remedies include: (a) <strong>regulating future conduct</strong> under s 216(2)(b), such as ordering a mandatory dividend policy, requiring independent director appointments, or mandating board approval processes for related-party transactions; (b) <strong>directing specific acts</strong> under s 216(2)(a), such as ordering the loan to C to be recalled immediately; (c) <strong>authorising a derivative action</strong> under s 216(2)(c) for the company to recover the loan; (d) <strong>amending the constitution</strong> under s 216(2)(a) to remove the structural lock-in (e.g., deleting Articles 10-12); or (e) <strong>winding up</strong> under s 216(2)(f), though this is a last resort as it destroys going-concern value. In practice, courts often combine remedies. For Sea Paradise, the most pragmatic combination might be: recall the loan + impose a dividend policy + modify Articles 10-12, if a full buy-out would strain company finances.
+  </div></div>
+</div>
+
 </main>
 
 <script>
@@ -1058,7 +1184,7 @@ function applyFilters() {
     s.style.display = visibleSections.has(s.dataset.section) ? '' : 'none';
   });
 
-  statsEl.textContent = `Showing ${visible} of 60 questions`;
+  statsEl.textContent = `Showing ${visible} of 71 questions`;
 
   document.getElementById('noResults')?.remove();
   if (visible === 0) {
